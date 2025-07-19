@@ -1,0 +1,168 @@
+/* الألوان الأساسية المستخدمة في الواجهة */
+:root {
+    --header-bg-color: #007bff; /* أزرق داكن لشريط الرأس */
+    --header-text-color: #fff;  /* نص أبيض */
+    --nav-item-hover-bg: #0056b3; /* خلفية عند التحويم */
+    --nav-item-active-bg: #004085; /* خلفية العنصر النشط */
+    --light-gray-border: #ccc;
+    --dark-gray-text: #333;
+    --section-bg-color: #f5f5f5; /* خلفية الأقسام */
+}
+
+/* إعادة تعيين أساسي للمتصفح */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* خط عام مقارب */
+    background-color: #f0f0f0; /* خلفية خفيفة للجسم */
+    direction: rtl; /* لضمان اتجاه RTL للصفحة بالكامل */
+    text-align: right; /* محاذاة النص لليمين افتراضياً */
+}
+
+/* شريط الرأس الرئيسي */
+.header-bar {
+    display: flex; /* استخدام Flexbox لتنظيم العناصر أفقياً */
+    justify-content: space-between; /* توزيع المساحة بين العناصر */
+    align-items: center; /* محاذاة العناصر عمودياً في المنتصف */
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    padding: 10px 20px;
+    height: 60px; /* ارتفاع ثابت لشريط الرأس */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* ظل خفيف للعمق */
+}
+
+/* الجزء الأيسر من شريط الرأس */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon {
+    font-size: 20px;
+    margin-left: 15px; /* مسافة عن العنوان */
+    cursor: pointer;
+}
+
+.page-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    white-space: nowrap; /* منع انقسام النص إلى سطر جديد */
+}
+
+/* الجزء الأوسط - شعار Oracle */
+.header-center {
+    flex-grow: 1; /* للسماح للشعار بأخذ المساحة المتاحة في المنتصف */
+    display: flex;
+    justify-content: center; /* توسيط الشعار */
+    align-items: center;
+}
+
+.oracle-logo {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.oracle-logo img {
+    height: 25px; /* ارتفاع الشعار */
+    margin-left: 10px; /* مسافة عن النص */
+}
+
+/* روابط التنقل اليمنى */
+.header-right-nav ul {
+    list-style: none; /* إزالة نقاط القائمة */
+    display: flex; /* وضع عناصر القائمة بجانب بعضها */
+}
+
+.header-right-nav li {
+    position: relative; /* لتحديد الموضع النسبي للخط السفلي النشط */
+}
+
+.header-right-nav a {
+    color: var(--header-text-color);
+    text-decoration: none;
+    padding: 0 15px; /* مسافة داخلية للروابط */
+    display: flex;
+    align-items: center;
+    height: 60px; /* نفس ارتفاع شريط الرأس للمحاذاة */
+    font-size: 0.9em;
+    white-space: nowrap;
+    transition: background-color 0.3s ease; /* تأثير الانتقال عند التحويم */
+}
+
+.header-right-nav a i {
+    margin-left: 8px; /* مسافة بين الأيقونة والنص */
+}
+
+.header-right-nav li:hover a {
+    background-color: var(--nav-item-hover-bg);
+}
+
+.header-right-nav li.active a {
+    background-color: var(--nav-item-active-bg);
+    position: relative;
+}
+
+/* الخط الأزرق تحت العنصر النشط */
+.header-right-nav li.active a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0; /* في RTL، الخط يبدأ من اليمين */
+    width: 100%;
+    height: 3px; /* سمك الخط */
+    background-color: #ffd700; /* لون أصفر براق كما في الصورة الأصلية */
+}
+
+/* جزء معلومات المستخدم الأيمن جداً */
+.header-right-user {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* مسافة عن حافة الشاشة */
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+.header-right-user span {
+    margin-right: 15px; /* مسافة بين اسم المستخدم ومعلومات الحساب */
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1); /* خلفية خفيفة */
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.user-text {
+    margin-left: 10px; /* مسافة عن الأيقونة */
+    color: var(--header-text-color);
+}
+
+.notification-icon {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #ffd700; /* لون أصفر للمطابقة */
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* لجعلها دائرية */
+    border: 1px solid var(--light-gray-border);
+    margin-right: 10px;
+}
+
+.dropdown-arrow {
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+/* نهاية شريط الرأس */
