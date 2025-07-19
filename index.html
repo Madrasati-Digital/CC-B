@@ -57,11 +57,11 @@
                     </ul>
                 </div>
                 <div class="toolbar-actions">
-                    <button class="btn btn-search">بحث</button>
-                    <button class="btn btn-update">تحديث</button>
-                    <button class="btn btn-clear">مسح</button>
-                    <button class="btn btn-print">طباعة</button>
-                    <button class="btn btn-reference">الواجهة المرجعية</button>
+                    <button class="btn toolbar-btn">بحث</button>
+                    <button class="btn toolbar-btn">تحديث</button>
+                    <button class="btn toolbar-btn">مسح</button>
+                    <button class="btn toolbar-btn">طباعة</button>
+                    <button class="btn toolbar-btn">الواجهة المرجعية</button>
                     <input type="text" placeholder="الرمز الفريدي" class="input-field-toolbar">
                 </div>
             </div>
@@ -86,14 +86,14 @@
                         </div>
                         <div class="form-row">
                             <label for="bill-cycle">صيغة دورة الفاتورة</label>
-                            <select id="bill-cycle" class="input-field">
+                            <select id="bill-cycle" class="input-field custom-select-arrow">
                                 <option value="">&nbsp;</option> <option value="monthly">شهري</option>
                                 <option value="quarterly">ربع سنوي</option>
                             </select>
                         </div>
                         <div class="form-row">
                             <label for="person-id">نوع قائمة معرف الشخص</label>
-                            <select id="person-id" class="input-field">
+                            <select id="person-id" class="input-field custom-select-arrow">
                                 <option value="">&nbsp;</option>
                                 <option value="id-card">بطاقة هوية</option>
                                 <option value="passport">جواز سفر</option>
@@ -101,7 +101,7 @@
                         </div>
                         <div class="form-row">
                             <label for="account-type">نوع قائمة الحسابات الجغرافية</label>
-                            <select id="account-type" class="input-field">
+                            <select id="account-type" class="input-field custom-select-arrow">
                                 <option value="">&nbsp;</option>
                                 <option value="residential">سكني</option>
                                 <option value="commercial">تجاري</option>
@@ -126,7 +126,7 @@
                         </div>
                         <div class="form-row">
                             <label for="meter-type">نوع المعرف</label>
-                            <select id="meter-type" class="input-field">
+                            <select id="meter-type" class="input-field custom-select-arrow">
                                 <option value="">&nbsp;</option>
                                 <option value="electric">كهرباء</option>
                                 <option value="water">ماء</option>
@@ -134,7 +134,7 @@
                         </div>
                         <div class="form-row populate-eid-row">
                             <label for="pop-eid-num">Populate EID Number</label>
-                            <select id="pop-eid-num" class="input-field full-width">
+                            <select id="pop-eid-num" class="input-field custom-select-arrow full-width">
                                 <option value="">&nbsp;</option>
                                 <option value="option1">خيار 1</option>
                                 <option value="option2">خيار 2</option>
@@ -148,8 +148,8 @@
         <aside class="sidebar">
             <div class="sidebar-section">
                 <h3>الروابط المفضلة</h3>
-                <ol>
-                    <li><a href="#"><span class="list-num">1</span> <i class="fas fa-envelope-open-text"></i> ملخصات</a><button class="small-btn">بحث</button></li>
+                <ol class="numbered-list">
+                    <li><a href="#"><span class="list-num">1</span> <i class="fas fa-receipt"></i> ملخصات</a><button class="small-btn">بحث</button></li>
                     <li><a href="#"><span class="list-num">2</span> <i class="fas fa-file-invoice"></i> الفاتورة</a><button class="small-btn">بحث</button></li>
                     <li><a href="#"><span class="list-num">3</span> <i class="fas fa-calendar-alt"></i> الفاتورة الدورية</a><button class="small-btn">بحث</button></li>
                     <li><a href="#"><span class="list-num">4</span> <i class="fas fa-hand-holding-usd"></i> السداد</a><button class="small-btn">بحث</button></li>
