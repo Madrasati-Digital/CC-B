@@ -1,23 +1,33 @@
-/* الألوان الأساسية المستخدمة في الواجهة */
+/* Color Palette from the original image */
 :root {
-    --header-bg-color: #007bff; /* أزرق داكن لشريط الرأس */
-    --header-text-color: #fff;  /* نص أبيض */
-    --nav-item-hover-bg: #0056b3; /* خلفية عند التحويم */
-    --nav-item-active-bg: #004085; /* خلفية العنصر النشط */
-    --light-gray-border: #ccc;
-    --dark-gray-text: #333;
-    --section-bg-color: #f5f5f5; /* خلفية الأقسام */
-    --sidebar-bg-color: #e0e0e0; /* رمادي فاتح للشريط الجانبي */
-    --toolbar-bg-color: #ebebeb; /* رمادي أفتح لشريط الأدوات */
-    --main-content-bg-color: #ffffff; /* أبيض ناصع للمحتوى الرئيسي */
-    --footer-bg-color: #a0a0a0; /* رمادي لشريط الحالة السفلي */
-    --footer-text-color: #333;
-    --input-border-color: #a0a0a0; /* لون حدود حقول الإدخال */
-    --button-bg-color: #f0f0f0; /* خلفية أزرار شريط الأدوات */
-    --button-border-color: #ccc; /* حدود أزرار شريط الأدوات */
+    --header-bg-color: #007bff; /* Dark blue for header */
+    --header-text-color: #fff;  /* White text */
+    --nav-item-hover-bg: #0056b3; /* Header nav item hover background */
+    --nav-item-active-bg: #004085; /* Header nav item active background */
+    --active-tab-underline-color: #ffd700; /* Yellow underline for active header tab */
+
+    --main-border-color: #ccc; /* General light gray border */
+    --light-bg-color: #f0f0f0; /* Very light gray for body background */
+    --medium-gray-bg: #ebebeb; /* Medium light gray for toolbars/some section headers */
+    --white-bg-color: #ffffff; /* Pure white for main content and sidebar */
+    --dark-text-color: #333; /* Dark gray for general text */
+    --light-text-color: #777; /* Lighter gray for secondary text */
+
+    --input-field-border: #a0a0a0; /* Border for input fields */
+    --button-bg-color: #f0f0f0; /* Default button background */
+    --button-border-color: #ccc; /* Default button border */
+    --button-hover-bg: #e9e9e9; /* Button hover background */
+
+    --sidebar-section-header-bg: #ebebeb; /* Sidebar section header background */
+    --sidebar-link-border: #dcdcdc; /* Sidebar link dashed border */
+    --sidebar-num-bg: #f0f0f0; /* Background for numbers in sidebar list */
+    --sidebar-num-border: #ccc; /* Border for numbers in sidebar list */
+    --sidebar-num-text: #888; /* Text color for numbers in sidebar list */
+    --vip-icon-color: gold; /* Gold color for VIP icon */
+    --signal-icon-color: #4CAF50; /* Green for signal icon */
 }
 
-/* إعادة تعيين أساسي للمتصفح */
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -25,16 +35,17 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f0f0; /* خلفية خفيفة للجسم */
-    direction: rtl;
-    text-align: right;
-    display: flex; /* لجعل الشريط العلوي، الرئيسي، والفوتر يترتبوا عمودياً */
-    flex-direction: column;
-    min-height: 100vh; /* لجعل الـ body يأخذ كامل ارتفاع الشاشة */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Common Windows font */
+    background-color: var(--light-bg-color); /* Overall body background */
+    direction: rtl; /* Right-to-Left text direction */
+    text-align: right; /* Default text alignment */
+    display: flex; /* Flex container for header, main-layout, footer */
+    flex-direction: column; /* Stack them vertically */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    overflow: hidden; /* Prevent body scroll, let specific sections scroll */
 }
 
-/* شريط الرأس الرئيسي (تنسيقاته كما هي) */
+/* Header Bar Styling */
 .header-bar {
     display: flex;
     justify-content: space-between;
@@ -44,210 +55,547 @@ body {
     padding: 10px 20px;
     height: 60px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    flex-shrink: 0; /* منع الشريط من الانكماش */
+    flex-shrink: 0; /* Prevent shrinking */
+    z-index: 1000; /* Ensure it stays on top */
 }
 
-/* ... (بقية أكواد .header-left, .menu-icon, .page-title, .header-center, .oracle-logo,
-.header-right-nav, .header-right-nav ul, li, a, .active::after, .header-right-user,
-.user-info, .user-text, .notification-icon, .user-avatar, .dropdown-arrow) ...
-أبقِها كما هي من الكود السابق. */
-
-/* ************** تنسيقات الأجزاء الجديدة ************** */
-
-/* الحاوية الرئيسية للمحتوى (الشريط الجانبي + المحتوى) */
-.main-layout {
-    display: flex; /* لوضع الشريط الجانبي والمحتوى جنبًا إلى جنب */
-    flex-grow: 1; /* للسماح لها بأخذ المساحة المتبقية */
-    background-color: var(--section-bg-color); /* خلفية خفيفة للجزء الرئيسي بالكامل */
-}
-
-/* الشريط الجانبي الأيسر */
-.sidebar {
-    width: 250px; /* عرض ثابت للشريط الجانبي */
-    background-color: var(--sidebar-bg-color);
-    padding: 15px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* ظل جانبي خفيف */
-    flex-shrink: 0; /* منع الشريط الجانبي من الانكماش */
-    overflow-y: auto; /* لإضافة شريط تمرير إذا كان المحتوى طويلاً */
-    border-left: 1px solid var(--light-gray-border); /* خط فاصل على اليسار */
-}
-
-.sidebar h3 {
-    font-size: 1em;
-    color: var(--dark-gray-text);
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid var(--light-gray-border);
-}
-
-.sidebar ul {
-    list-style: none;
-    margin-bottom: 15px;
-}
-
-.sidebar ul li a {
+.header-left {
     display: flex;
     align-items: center;
-    color: var(--dark-gray-text);
+}
+
+.menu-icon {
+    font-size: 20px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.page-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.header-center {
+    flex-grow: 1; /* Allows it to take available space */
+    display: flex;
+    justify-content: center; /* Center the logo */
+    align-items: center;
+}
+
+.oracle-logo {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.oracle-logo img {
+    height: 25px;
+    margin-left: 10px;
+}
+
+.header-right-nav ul {
+    list-style: none;
+    display: flex; /* Horizontal list */
+}
+
+.header-right-nav li {
+    position: relative;
+}
+
+.header-right-nav a {
+    color: var(--header-text-color);
     text-decoration: none;
-    padding: 8px 5px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    height: 60px; /* Same height as header for alignment */
+    font-size: 0.9em;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+.header-right-nav a i {
+    margin-left: 8px;
+}
+
+.header-right-nav li:hover a {
+    background-color: var(--nav-item-hover-bg);
+}
+
+.header-right-nav li.active a {
+    background-color: var(--nav-item-active-bg);
+    position: relative;
+}
+
+.header-right-nav li.active a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0; /* For RTL, underline starts from right */
+    width: 100%;
+    height: 3px;
+    background-color: var(--active-tab-underline-color);
+}
+
+.header-right-user {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+.header-right-user > span { /* Targeting the name span directly */
+    margin-right: 15px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
     border-radius: 3px;
+}
+
+.user-text {
+    margin-left: 10px;
+    color: var(--header-text-color);
+}
+
+.notification-icon {
+    font-size: 18px;
+    margin-right: 10px;
+    color: var(--active-tab-underline-color);
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--main-border-color);
+    margin-right: 10px;
+}
+
+.dropdown-arrow {
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+/* Main Layout Container Styling */
+.main-layout {
+    display: flex; /* Flex container for content-area and sidebar */
+    flex-grow: 1; /* Takes remaining vertical space */
+    border-top: 1px solid var(--main-border-color); /* Separator line below header */
+}
+
+/* Main Content Area Styling */
+.content-area {
+    flex-grow: 1; /* Takes available horizontal space */
+    background-color: var(--white-bg-color);
+    display: flex;
+    flex-direction: column; /* Stack toolbar and tab-content vertically */
+    overflow-y: auto; /* Enable vertical scrolling for main content if needed */
+}
+
+/* Toolbar (Search/Action Bar) Styling */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--medium-gray-bg);
+    border-bottom: 1px solid var(--main-border-color);
+    padding: 0 15px; /* Vertical padding is handled by button height */
+    height: 40px; /* Fixed height for the toolbar */
+    flex-shrink: 0;
+}
+
+.toolbar-tabs ul {
+    list-style: none;
+    display: flex;
+}
+
+.toolbar-tabs .tab-item {
+    position: relative;
+}
+
+.toolbar-tabs .tab-item a {
+    text-decoration: none;
+    color: var(--dark-text-color);
+    padding: 0 15px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    white-space: nowrap;
     transition: background-color 0.2s ease;
 }
 
-.sidebar ul li a:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+.toolbar-tabs .tab-item.active a {
+    font-weight: bold;
+    background-color: var(--white-bg-color);
+    border-right: 1px solid var(--main-border-color);
+    border-left: 1px solid var(--main-border-color);
+    border-top: 1px solid var(--main-border-color);
+    border-bottom-color: var(--white-bg-color); /* Hide bottom border */
+    position: relative;
+    z-index: 1; /* Bring active tab to front */
+    margin-right: -1px; /* Overlap border */
+    margin-left: -1px; /* Overlap border */
 }
 
-.sidebar ul li a i {
-    margin-left: 10px; /* مسافة بين الأيقونة والنص */
-    color: var(--header-bg-color); /* لون الأيقونات */
+/* Specific styling for the toolbar tabs borders for a cleaner look */
+.tab-list {
+    border-left: 1px solid var(--main-border-color); /* Add a left border to the whole list */
+}
+.tab-list .tab-item:first-child.active {
+    border-right: 1px solid var(--main-border-color); /* Border for first active tab */
+}
+.tab-list .tab-item:not(.active) a:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+
+.toolbar-actions {
+    display: flex;
+    align-items: center;
+}
+
+.input-field-toolbar {
+    padding: 5px 10px;
+    border: 1px solid var(--input-field-border);
+    border-radius: 3px;
+    font-size: 0.85em;
+    width: 120px;
+    margin-right: 10px; /* Space from buttons */
+    text-align: right;
+}
+
+.btn {
+    padding: 5px 12px;
+    background-color: var(--button-bg-color);
+    border: 1px solid var(--button-border-color);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.85em;
+    margin-right: 4px;
+    color: var(--dark-text-color);
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Content within tabs (Right & Left Sections) */
+.tab-content {
+    display: flex; /* Layout the two content sections side-by-side */
+    flex-grow: 1; /* Takes remaining vertical space */
+    padding: 20px; /* Padding around the content sections */
+    background-color: var(--white-bg-color); /* Ensures a white background inside */
+}
+
+.content-section {
+    padding: 15px;
+    background-color: var(--white-bg-color);
+    border: 1px solid var(--main-border-color);
+    border-radius: 3px;
+}
+
+.right-section {
+    flex-basis: 70%; /* Takes more width for the main form */
+    margin-left: 15px; /* Space between sections */
+}
+
+.left-section {
+    flex-basis: 30%; /* Smaller width for secondary form */
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--main-border-color);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.section-header i {
+    font-size: 1.1em;
+    color: var(--dark-text-color);
+    margin-left: 10px;
+}
+
+.section-header h3 {
+    font-size: 1em;
+    color: var(--dark-text-color);
+    font-weight: bold;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-row label {
+    flex-basis: 150px; /* Fixed width for labels */
+    flex-shrink: 0;
+    font-size: 0.9em;
+    color: var(--dark-text-color);
+    text-align: right;
+    margin-left: 10px; /* Space between label and input */
+}
+
+.input-field {
+    flex-grow: 1; /* Input field takes remaining space */
+    padding: 5px 10px;
+    border: 1px solid var(--input-field-border);
+    border-radius: 3px;
+    font-size: 0.9em;
+    text-align: right;
+    height: 28px; /* Fixed height for inputs */
+}
+
+.checkbox-row {
+    justify-content: flex-end; /* Push checkbox to the right */
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.checkbox-row label {
+    flex-basis: auto; /* Reset flex-basis for label */
+    margin-left: 5px; /* Space between checkbox and label */
+    font-size: 0.85em;
+    color: var(--dark-text-color);
+}
+
+.checkbox-row input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    /* Basic styling for checkbox to look flat */
+    border: 1px solid var(--input-field-border);
+    border-radius: 2px;
+    -webkit-appearance: none; /* Hide default checkbox */
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.checkbox-row input[type="checkbox"]:checked {
+    background-color: var(--header-bg-color); /* Blue when checked */
+    border-color: var(--header-bg-color);
+}
+
+/* Flex row for specific input layout in left section */
+.form-row.flex-row {
+    align-items: stretch; /* Stretch items to fill height */
+}
+
+.form-row.flex-row label {
+    flex-basis: 150px; /* Specific label width */
+    margin-left: 10px;
+    display: flex;
+    align-items: center; /* Vertically center label */
+}
+
+.form-row .full-width {
+    width: 100%; /* Make input take full available width in its flex context */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px; /* Fixed width for the sidebar */
+    background-color: var(--white-bg-color); /* White background as in original */
+    padding: 10px 0; /* Vertical padding, no horizontal */
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1); /* Shadow on the right side */
+    flex-shrink: 0; /* Prevent shrinking */
+    overflow-y: auto; /* Enable vertical scrolling for sidebar if content overflows */
+    border-right: 1px solid var(--main-border-color); /* Right border for separation */
 }
 
 .sidebar-section {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
+    margin-bottom: 5px; /* Minimal margin between sections */
+}
+
+.sidebar h3 {
+    font-size: 0.9em;
+    font-weight: normal;
+    color: var(--dark-text-color);
+    padding: 5px 15px;
+    margin-bottom: 5px;
+    background-color: var(--medium-gray-bg); /* Gray background for sidebar headers */
+    border-top: 1px solid var(--main-border-color);
+    border-bottom: 1px solid var(--main-border-color);
+    display: flex; /* For possible icon alignment */
+    align-items: center;
+}
+
+.sidebar ol, .sidebar ul {
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0 15px; /* Horizontal padding for list items */
+}
+
+.sidebar ol li, .sidebar ul li {
+    padding: 0;
+    display: flex; /* To align link and button */
+    align-items: center;
+    justify-content: space-between; /* Push button to the end */
+}
+
+.sidebar ol li a, .sidebar ul li a {
+    flex-grow: 1; /* Allow link to take available space */
+    display: flex;
+    align-items: center;
+    color: var(--dark-text-color);
+    text-decoration: none;
+    padding: 5px 0;
+    border-bottom: 1px dashed var(--sidebar-link-border); /* Dashed border for links */
+    font-size: 0.85em;
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow */
+}
+
+.sidebar ol li:last-child a, .sidebar ul li:last-child a {
+    border-bottom: none; /* No border for the last link */
+}
+
+.sidebar ol li a i, .sidebar ul li a i {
+    margin-left: 8px;
+    color: var(--dark-text-color); /* Icon color matching text */
+    font-size: 0.9em;
+}
+
+/* Styling for the numbered list in sidebar */
+.sidebar ol {
+    counter-reset: list-counter; /* Initialize counter */
+}
+
+.sidebar ol li {
+    position: relative;
+    padding-right: 25px; /* Space for the number circle */
+}
+
+.sidebar ol li .list-num {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7em;
+    color: var(--sidebar-num-text);
+    background-color: var(--sidebar-num-bg);
+    border: 1px solid var(--sidebar-num-border);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1; /* Ensure number is on top */
+}
+
+.sidebar .small-btn {
+    padding: 2px 8px;
+    font-size: 0.75em;
+    margin-right: 5px;
+    background-color: var(--button-bg-color);
+    border: 1px solid var(--button-border-color);
+    border-radius: 3px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar .small-btn:hover {
+    background-color: var(--button-hover-bg);
 }
 
 .vip-todos, .login-history {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 5px;
-    background-color: var(--toolbar-bg-color);
-    border: 1px solid var(--light-gray-border);
-    border-radius: 3px;
-    margin-bottom: 10px;
+    padding: 8px 10px;
+    background-color: var(--white-bg-color); /* White background */
+    border: 1px solid var(--main-border-color);
+    margin: 5px 15px; /* Margin from sides of sidebar */
     cursor: pointer;
-}
-
-.vip-todos h3, .login-history h3 {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
     font-size: 0.9em;
 }
 
-.vip-icon, .history-icon {
-    color: gold; /* لون الأيقونات في هذه الأقسام */
-    font-size: 1.2em;
+.vip-todos h3, .login-history h3 {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.vip-todos h3 i, .login-history h3 i {
+    margin-left: 8px;
+    font-size: 1.1em;
+}
+
+.vip-icon {
+    color: var(--vip-icon-color);
+}
+
+.login-history .history-icon {
+    color: var(--dark-text-color); /* Or a specific color from original image if different */
 }
 
 .sidebar-retrieve {
-    background-color: var(--toolbar-bg-color);
-    border: 1px solid var(--light-gray-border);
-    border-radius: 3px;
-    padding: 10px;
+    background-color: var(--medium-gray-bg); /* Gray background */
+    border: 1px solid var(--main-border-color);
+    padding: 10px 15px;
+    margin: 5px 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 0.85em;
-    color: var(--dark-gray-text);
+    font-size: 0.8em;
+    color: var(--dark-text-color);
     cursor: pointer;
 }
 
 .sidebar-retrieve p {
     margin: 0;
     flex-grow: 1;
+    font-size: 0.85em;
+    line-height: 1.3;
 }
 
 .retrieve-icon {
     margin-right: 5px;
     color: var(--header-bg-color);
+    font-size: 1em;
 }
 
 
-/* منطقة المحتوى الرئيسية */
-.content-area {
-    flex-grow: 1; /* للسماح لها بأخذ كل المساحة المتبقية أفقياً */
-    background-color: var(--main-content-bg-color);
-    padding: 20px;
-    display: flex;
-    flex-direction: column; /* لترتيب العناصر الداخلية عمودياً */
-    overflow-y: auto; /* لشريط تمرير إذا كان المحتوى طويلاً */
-}
-
-/* شريط الأدوات تحت الهيدر */
-.toolbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--toolbar-bg-color);
-    border: 1px solid var(--light-gray-border);
-    padding: 10px 15px;
-    margin-bottom: 20px; /* مسافة عن المحتوى التالي */
-    border-radius: 3px;
-}
-
-.toolbar-left .active-tab-title {
-    font-weight: bold;
-    color: var(--dark-gray-text);
-    font-size: 1.1em;
-}
-
-.toolbar-right {
-    display: flex;
-    align-items: center;
-}
-
-.search-input {
-    padding: 8px 12px;
-    border: 1px solid var(--input-border-color);
-    border-radius: 3px;
-    font-size: 0.9em;
-    width: 150px; /* عرض محدد لحقل البحث */
-    margin-left: 10px;
-    text-align: right; /* محاذاة النص داخل الحقل لليمين */
-}
-
-.btn {
-    padding: 8px 15px;
-    background-color: var(--button-bg-color);
-    border: 1px solid var(--button-border-color);
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 0.9em;
-    margin-left: 5px; /* مسافة بين الأزرار */
-    color: var(--dark-gray-text);
-    transition: background-color 0.2s ease;
-}
-
-.btn:hover {
-    background-color: #e9e9e9;
-}
-
-/* مكان مؤقت لمحتوى الألسنة */
-.tab-content-placeholder {
-    background-color: var(--main-content-bg-color);
-    border: 1px solid var(--light-gray-border);
-    padding: 20px;
-    flex-grow: 1; /* للسماح له بأخذ المساحة المتبقية */
-    border-radius: 3px;
-}
-
-
-/* شريط الحالة السفلي */
+/* Footer Bar Styling */
 .footer-bar {
     display: flex;
-    justify-content: flex-end; /* محاذاة العناصر إلى اليمين */
+    justify-content: flex-start; /* Align content to the left */
     align-items: center;
-    background-color: var(--footer-bg-color);
-    color: var(--footer-text-color);
+    background-color: var(--medium-gray-bg); /* Gray background */
+    color: var(--dark-text-color);
     padding: 8px 20px;
     font-size: 0.8em;
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* ظل علوي خفيف */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
     flex-shrink: 0;
-    position: sticky; /* لجعل الفوتر يلتصق بالأسفل */
-    bottom: 0;
-    width: 100%;
+    height: 30px; /* Fixed height */
 }
 
 .footer-bar span {
-    margin-left: 15px;
+    margin-right: 15px; /* Space between elements */
 }
 
 .footer-bar i {
-    margin-left: 5px;
+    margin-right: 5px;
     font-size: 1em;
-    color: #4CAF50; /* لون أخضر لإشارة الشبكة */
+    color: var(--signal-icon-color); /* Green signal icon */
 }
