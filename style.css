@@ -6,8 +6,8 @@
     --nav-item-active-bg: #004d6b;
     --active-tab-underline-color: #ffcc00; /* Yellow-gold */
 
-    --main-border-color: #c9c9c9; /* General light gray border */
-    --body-bg-color: #f0f0f0; /* Very light gray for body background, slightly lighter than previous */
+    --main-border-color: #c0c0c0; /* General light gray border, slightly darker */
+    --body-bg-color: #f0f0f0; /* Very light gray for body background */
     --toolbar-bg-color: #e6e6e6; /* Toolbar background (lighter gray now) */
     --white-bg-color: #ffffff; /* Pure white for main content and sidebar */
     --dark-text-color: #333333; /* Dark gray for general text */
@@ -33,6 +33,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Ensure html and body take full height */
 }
 
 body {
@@ -200,8 +204,9 @@ body {
 /* Main Layout Container Styling */
 .main-layout {
     display: flex;
-    flex-grow: 1;
+    flex-grow: 1; /* Takes all available vertical space */
     border-top: 1px solid var(--main-border-color);
+    background-color: var(--white-bg-color); /* Ensure content background is white */
 }
 
 /* Sidebar (Left Navigation) Styling */
@@ -209,10 +214,10 @@ body {
     width: 250px; /* Consistent width */
     background-color: var(--white-bg-color);
     padding: 10px 0;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1); /* Shadow on the right (separation from content) */
     flex-shrink: 0;
     overflow-y: auto;
-    border-right: 1px solid var(--main-border-color);
+    border-right: 1px solid var(--main-border-color); /* Right border to separate from content */
 }
 
 .sidebar-section {
@@ -220,8 +225,8 @@ body {
 }
 
 .sidebar h3 {
-    font-size: 0.85em; /* Slightly smaller */
-    font-weight: normal; /* Normal weight */
+    font-size: 0.8em; /* Adjusted to smaller size based on original */
+    font-weight: bold; /* Bold as in original */
     color: var(--dark-text-color);
     padding: 4px 15px; /* Adjusted padding */
     margin-bottom: 5px;
@@ -360,7 +365,7 @@ body {
 .sidebar-retrieve {
     background-color: var(--toolbar-bg-color);
     border: 1px solid var(--main-border-color);
-    padding: 6px 15px; /* Adjusted padding */
+    padding: 6px 15px;
     margin: 5px 15px;
     display: flex;
     align-items: center;
@@ -401,7 +406,7 @@ body {
     background-color: var(--toolbar-bg-color);
     border-bottom: 1px solid var(--main-border-color);
     padding: 0 15px;
-    height: 35px; /* Slightly shorter toolbar height */
+    height: 35px; /* Tighter toolbar height */
     flex-shrink: 0;
 }
 
@@ -430,24 +435,22 @@ body {
     transition: background-color 0.2s ease;
     border-left: 1px solid var(--main-border-color);
     border-top: 1px solid var(--main-border-color);
-    /* border-right: none; removed to avoid double borders on active/next */
+    border-bottom: 1px solid var(--main-border-color); /* Add bottom border for inactive tabs */
 }
 
-.toolbar-tabs .tab-item:first-child a {
-    border-right: 1px solid var(--main-border-color); /* Add right border to the very first tab */
+.toolbar-tabs .tab-item:last-child a {
+    border-right: 1px solid var(--main-border-color); /* Add right border to the very last tab */
 }
-
 
 .toolbar-tabs .tab-item.active a {
     font-weight: bold;
     background-color: var(--white-bg-color);
-    border-right: 1px solid var(--main-border-color); /* Active tab gets its right border */
+    border-right: 1px solid var(--main-border-color);
     border-bottom-color: var(--white-bg-color); /* Hides the bottom border to make it look connected */
     position: relative;
     z-index: 1;
-    /* Negative margin to visually overlap border */
-    margin-left: -1px;
-    margin-right: -1px;
+    margin-left: -1px; /* Overlap border */
+    margin-right: -1px; /* Overlap border */
 }
 
 .toolbar-tabs .tab-item:not(.active) a:hover {
@@ -484,7 +487,7 @@ body {
     transition: background-color 0.2s ease;
     font-weight: normal;
     height: 25px; /* Tighter height */
-    display: flex; /* For alignment */
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -511,61 +514,59 @@ body {
 .right-section {
     flex-basis: 65%; /* Adjusted width */
     margin-left: 15px;
-    /* Removed min-height, let content define height */
 }
 
 .left-section {
     flex-basis: 35%; /* Adjusted width */
-    /* Removed min-height */
 }
 
 .section-header {
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--main-border-color);
-    padding-bottom: 5px; /* Reduced padding */
-    margin-bottom: 10px; /* Reduced margin */
-    padding-right: 0px; /* No extra padding */
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    padding-right: 0px;
 }
 
 .section-header i {
-    font-size: 1em; /* Smaller icon */
+    font-size: 1em;
     color: var(--dark-text-color);
-    margin-left: 8px; /* Tighter margin */
+    margin-left: 8px;
 }
 
 .section-header h3 {
-    font-size: 0.9em; /* Smaller heading */
+    font-size: 0.9em;
     color: var(--dark-text-color);
-    font-weight: bold; /* Bold as in original */
+    font-weight: bold;
 }
 
 .form-row {
     display: flex;
     align-items: center;
-    margin-bottom: 8px; /* Reduced margin between rows */
+    margin-bottom: 8px;
     position: relative;
 }
 
 .form-row label {
     flex-basis: 140px; /* Adjusted fixed width for labels */
     flex-shrink: 0;
-    font-size: 0.85em; /* Smaller font for labels */
+    font-size: 0.85em;
     color: var(--dark-text-color);
     text-align: right;
     margin-left: 10px;
     white-space: nowrap;
-    line-height: 1.2; /* Tighter line height */
+    line-height: 1.2;
 }
 
 .input-field {
     flex-grow: 1;
-    padding: 3px 8px; /* Tighter padding */
+    padding: 3px 8px;
     border: 1px solid var(--input-field-border);
     border-radius: 3px;
-    font-size: 0.85em; /* Smaller font */
+    font-size: 0.85em;
     text-align: right;
-    height: 24px; /* Tighter height */
+    height: 24px;
     background-color: var(--white-bg-color);
 }
 
@@ -574,6 +575,7 @@ body {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    /* Use a base64 encoded SVG for consistent arrow across browsers */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: left 5px center; /* Adjusted arrow position */
@@ -593,7 +595,7 @@ body {
 
 .checkbox-row {
     justify-content: flex-end;
-    margin-top: 10px; /* Reduced margin */
+    margin-top: 10px;
     margin-bottom: 10px;
     padding-right: 15px;
 }
@@ -607,8 +609,8 @@ body {
 }
 
 .checkbox-row input[type="checkbox"] {
-    width: 14px; /* Smaller checkbox */
-    height: 14px; /* Smaller checkbox */
+    width: 14px;
+    height: 14px;
     border: 1px solid var(--input-field-border);
     border-radius: 2px;
     -webkit-appearance: none;
@@ -627,10 +629,10 @@ body {
 .checkbox-row input[type="checkbox"]:checked::after {
     content: '';
     position: absolute;
-    left: 3px; /* Adjusted position */
-    top: 0px; /* Adjusted position */
-    width: 4px; /* Adjusted size */
-    height: 8px; /* Adjusted size */
+    left: 3px;
+    top: 0px;
+    width: 4px;
+    height: 8px;
     border: solid white;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
@@ -644,12 +646,12 @@ body {
     align-items: center;
     background-color: var(--footer-bg-color);
     color: var(--dark-text-color);
-    padding: 5px 20px; /* Tighter padding */
-    font-size: 0.8em; /* Smaller font */
+    padding: 5px 20px;
+    font-size: 0.8em;
     box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
     flex-shrink: 0;
-    height: 25px; /* Tighter height */
-    font-weight: normal; /* Normal weight */
+    height: 25px;
+    font-weight: normal;
 }
 
 .footer-bar span {
