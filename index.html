@@ -44,58 +44,150 @@
     </header>
 
     <div class="main-layout">
+        <main class="content-area">
+            <div class="toolbar">
+                <div class="toolbar-tabs">
+                    <ul class="tab-list">
+                        <li class="tab-item active"><a href="#">رئيسي</a></li>
+                        <li class="tab-item"><a href="#">معلومات الحساب</a></li>
+                        <li class="tab-item"><a href="#">معلومات العميل</a></li>
+                        <li class="tab-item"><a href="#">شجرة العقد</a></li>
+                        <li class="tab-item"><a href="#">شجرة الفواتير والمدفوعات</a></li>
+                        <li class="tab-item"><a href="#">شجرة حفظ تدفق</a></li>
+                    </ul>
+                </div>
+                <div class="toolbar-actions">
+                    <button class="btn btn-search">بحث</button>
+                    <button class="btn btn-update">تحديث</button>
+                    <button class="btn btn-clear">مسح</button>
+                    <button class="btn btn-print">طباعة</button>
+                    <button class="btn btn-reference">الواجهة المرجعية</button>
+                    <input type="text" placeholder="الرمز الفريدي" class="input-field-toolbar">
+                </div>
+            </div>
+
+            <div class="tab-content">
+                <div class="content-section right-section">
+                    <div class="section-header">
+                        <i class="fas fa-users-cog"></i>
+                        <h3>مركز التحكم</h3>
+                    </div>
+                    <div class="section-body">
+                        <div class="form-row">
+                            <label for="name">الاسم</label>
+                            <input type="text" id="name" class="input-field">
+                        </div>
+                        <div class="form-row">
+                            <label for="address">العنوان</label>
+                            <input type="text" id="address" class="input-field">
+                        </div>
+                        <div class="form-row">
+                            <label for="account-id">معرف الحساب</label>
+                            <input type="text" id="account-id" class="input-field">
+                        </div>
+                        <div class="form-row">
+                            <label for="bill-cycle">صيغة دورة الفاتورة</label>
+                            <select id="bill-cycle" class="input-field">
+                                <option value="">-- اختر --</option>
+                                <option value="monthly">شهري</option>
+                                <option value="quarterly">ربع سنوي</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <label for="person-id">نوع قائمة معرف الشخص</label>
+                            <select id="person-id" class="input-field">
+                                <option value="">-- اختر --</option>
+                                <option value="id-card">بطاقة هوية</option>
+                                <option value="passport">جواز سفر</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <label for="account-type">نوع قائمة الحسابات الجغرافية</label>
+                            <select id="account-type" class="input-field">
+                                <option value="">-- اختر --</option>
+                                <option value="residential">سكني</option>
+                                <option value="commercial">تجاري</option>
+                            </select>
+                        </div>
+                        <div class="form-row checkbox-row">
+                            <input type="checkbox" id="show-notifications">
+                            <label for="show-notifications">إظهار كافة الإخطارات</label>
+                        </div>
+                        <div class="form-row">
+                            <label for="sub-account">الحساب الفرعي</label>
+                            <input type="text" id="sub-account" class="input-field">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section left-section">
+                    <div class="section-body">
+                        <div class="form-row">
+                            <label for="meter-number">رقم المعرف</label>
+                            <input type="text" id="meter-number" class="input-field">
+                        </div>
+                        <div class="form-row">
+                            <label for="meter-type">نوع المعرف</label>
+                            <select id="meter-type" class="input-field">
+                                <option value="">-- اختر --</option>
+                                <option value="electric">كهرباء</option>
+                                <option value="water">ماء</option>
+                            </select>
+                        </div>
+                        <div class="form-row flex-row">
+                            <label for="pop-eid-num">Populate EID Number</label>
+                            <select id="pop-eid-num" class="input-field full-width">
+                                <option value="">-- اختر --</option>
+                                <option value="option1">خيار 1</option>
+                                <option value="option2">خيار 2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
         <aside class="sidebar">
             <div class="sidebar-section">
                 <h3>الروابط المفضلة</h3>
-                <ul>
-                    <li><a href="#"><i class="fas fa-link"></i> ملخصات</a></li>
-                    <li><a href="#"><i class="fas fa-file-invoice"></i> الفاتورة</a></li>
-                    </ul>
+                <ol>
+                    <li><a href="#"><span class="list-num">1</span> <i class="fas fa-receipt"></i> ملخصات</a><button class="small-btn">بحث</button></li>
+                    <li><a href="#"><span class="list-num">2</span> <i class="fas fa-file-invoice"></i> الفاتورة</a><button class="small-btn">بحث</button></li>
+                    <li><a href="#"><span class="list-num">3</span> <i class="fas fa-calendar-alt"></i> الفاتورة الدورية</a><button class="small-btn">بحث</button></li>
+                    <li><a href="#"><span class="list-num">4</span> <i class="fas fa-hand-holding-usd"></i> السداد</a><button class="small-btn">بحث</button></li>
+                    <li><a href="#"><span class="list-num">5</span> <i class="fas fa-clipboard-list"></i> القيود</a><button class="small-btn">بحث</button></li>
+                    <li><a href="#"><span class="list-num">6</span> <i class="fas fa-redo-alt"></i> سجل التكرار</a><button class="small-btn">بحث</button></li>
+                    <li><a href="#"><span class="list-num">7</span> <i class="fas fa-arrow-alt-circle-up"></i> إجراء الدفع</a><button class="small-btn">بحث</button></li>
+                    <li><a href="#"><span class="list-num">8</span> <i class="fas fa-credit-card"></i> إجراء سداد سريع</a><button class="small-btn">بحث</button></li>
+                    <li><a href="#"><span class="list-num">9</span> <i class="fas fa-tasks"></i> موجز المهام</a><button class="small-btn">بحث</button></li>
+                    <li><a href="#"><i class="fas fa-sitemap"></i> النشاط البياني</a></li>
+                    <li><a href="#"><i class="fas fa-info-circle"></i> قيد شبيهة</a></li>
+                    <li><a href="#"><i class="fas fa-handshake"></i> اتصالات العميل</a></li>
+                    <li><a href="#"><i class="fas fa-user-circle"></i> الشخص</a></li>
+                    <li><a href="#"><i class="fas fa-money-check-alt"></i> محفظة الفاتورة</a></li>
+                    <li><a href="#"><i class="fas fa-bell"></i> الأمر</a></li>
+                    <li><a href="#"><i class="fas fa-ellipsis-h"></i> نقطة الخدمة</a></li>
+                    <li><a href="#">Direct Debit Link IBAN Enquiry</a></li>
+                    <li><a href="#"><i class="fas fa-plus-circle"></i> إدارة الإيداع</a></li>
+                </ol>
             </div>
-            <div class="sidebar-section">
-                <h3>تصفح</h3>
-                <ul>
-                    <li><a href="#"><i class="fas fa-users"></i> الشخص</a></li>
-                    <li><a href="#"><i class="fas fa-home"></i> العنوان</a></li>
-                </ul>
-            </div>
-             <div class="sidebar-section vip-todos">
-                <h3>VIP ToDos</h3>
-                <i class="fas fa-star vip-icon"></i>
+            <div class="sidebar-section vip-todos">
+                <h3><i class="fas fa-star vip-icon"></i> VIP ToDos</h3>
             </div>
             <div class="sidebar-section login-history">
-                <h3>سجل الدخول</h3>
-                <i class="fas fa-history history-icon"></i>
+                <h3><i class="fas fa-history history-icon"></i> سجل الدخول</h3>
             </div>
-             <div class="sidebar-retrieve">
+            <div class="sidebar-retrieve">
                 <p>Retrieve TODOS that are breached the SLA</p>
                 <i class="fas fa-chevron-down retrieve-icon"></i>
             </div>
         </aside>
-
-        <main class="content-area">
-            <div class="toolbar">
-                <div class="toolbar-left">
-                    <span class="active-tab-title">معلومات الحساب</span>
-                </div>
-                <div class="toolbar-right">
-                    <input type="text" placeholder="الرمز الفريدي" class="search-input">
-                    <button class="btn">بحث</button>
-                    <button class="btn">تحديث</button>
-                    <button class="btn">مسح</button>
-                    <button class="btn">الواجهة المرجعية</button>
-                </div>
-            </div>
-
-            <div class="tab-content-placeholder">
-                <p>هنا سيتم عرض محتوى الألسنة المختلفة (رئيسي، معلومات الحساب، إلخ)</p>
-            </div>
-        </main>
     </div>
+
     <footer class="footer-bar">
         <span>ENG</span>
         <span>19/07/2025</span>
-        <span>12:22 PM</span>
+        <span>12:25 PM</span>
         <i class="fas fa-signal"></i>
     </footer>
 
